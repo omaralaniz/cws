@@ -1,0 +1,22 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "headline"}}
+    <img class="logo" src="../static/img/title.svg" alt="cws_by_omar">
+{{end}}
+
+{{define "main"}}
+  <div class="home-container">
+    <div class="home-posts-container">
+    <p class="sub-headline homeHeader">Latest</p>
+    {{range .Posts}}
+      <div class="home-preview-item">
+        <p class="headline homeHeader">{{.Title}}</p>
+        <p class="body homePosts">{{.Content}}</p>
+        <a class="sub-text read-more" href="/post/{{.ID}}">Read More</a>
+      </div>
+    {{end}}
+    </div>
+  </div>
+{{end}} 

@@ -1,0 +1,34 @@
+{{template "base" .}}
+{{define "title"}}Create a New Post{{end}}
+{{define "headline"}}{{end}}
+
+{{define "main"}}
+  <form class="create-container" action='/post/create' method='POST'>
+    {{with .Form}}  
+      <div  class="body create-title">
+        <label>Title:</label>
+        {{with .Errors.Get "title"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <input class="create-input" type='text' name='title' value='{{.Get "title"}}'>
+      </div>
+      <div  class="body create-author">
+        <label>Author:</label>
+        {{with .Errors.Get "author"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <input class="create-input" type='text' name='author' value='{{.Get "author"}}'>
+      </div>
+      <div class="body create-content">
+        <label class="content-label">Content:</label>
+        {{with .Errors.Get "content"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <textarea class="create-content" name='content'>{{.Get "content"}}</textarea>
+      </div>
+      <div class="create-btn">
+        <input class="submit-btn" type='submit' value='Publish Post'>
+      </div>
+    {{end}}
+  </form>
+{{end}}

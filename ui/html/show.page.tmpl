@@ -1,0 +1,22 @@
+{{template "base" .}}
+
+{{define "title"}}{{.PostEx.Title}}{{end}}
+
+
+{{define "headline"}}
+  {{with .PostEx}}
+    <div class="show-header-container">
+      <div class="header title">{{.Title}}</div>
+      <p class="body date">{{humanDate .Modified}}</p>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <p class="body author">by {{.Author}}</p>
+  {{end}}
+{{end}} 
+{{define "main"}}
+  <div class="body show-container">
+    {{.PostEx.Content}}
+  </div>
+{{end}}

@@ -1,0 +1,24 @@
+{{template "base" .}}
+{{define "title"}}Create a New Post{{end}}
+{{define "headline"}}{{end}}
+
+{{define "main"}}
+  <form class="create-container" action='/author/login' method='POST'>
+    {{with .Form}}  
+      {{with .Errors.Get "generic"}}
+        <div class='error'>{{.}}</div>
+      {{end}}
+      <div>
+        <label>Email:</label>
+        <input type='text' name='email' value='{{.Get "email"}}'>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type='password' name='password'>
+      </div>
+      <div class="create-btn">
+        <input class="submit-btn" type='submit' value='Sign Up'>
+      </div>
+    {{end}}
+  </form>
+{{end}}
