@@ -6,27 +6,53 @@
   <form class="create-container" action='/post/create' method='POST'>
     {{with .Form}}  
       <div  class="body create-title">
-        <label>Title:</label>
+        <label class="title-lable">Title:</label>
         {{with .Errors.Get "title"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <input class="create-input" type='text' name='title' value='{{.Get "title"}}'>
+        <input class='title-input' type='text' name='title' value='{{.Get "title"}}'>
       </div>
       <div  class="body create-author">
-        <label>Author:</label>
+        <label class="author-label">Author:</label>
         {{with .Errors.Get "author"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <input class="create-input" type='text' name='author' value='{{.Get "author"}}'>
+        <input type='text' name='author' value='{{.Get "author"}}'>
       </div>
+
+      <div class="select">
+        <label class="select-label">Choose a category:</label>
+        {{with .Errors.Get "category"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <select name="category">
+          <option value="coding-challenges">Coding Challenges</option>
+          <option value="computer-networking">Computer Networking</option>
+          <option value="databases">Databases</option>
+          <option value="go">Go</option>
+          <option value="js">JavaScript</option>
+          <option value="security">Security</option>
+          <option value="web-apps">Web Apps</option>
+          <option value="misc">Miscellaneous</option>
+        </select>
+      </div>
+
       <div class="body create-content">
         <label class="content-label">Content:</label>
         {{with .Errors.Get "content"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <textarea class="create-content" name='content'>{{.Get "content"}}</textarea>
+        <textarea name='content'>{{.Get "content"}}</textarea>
       </div>
-      <div class="create-btn">
+
+      <div class="body">
+        <label class="content-label">Summary:</label>
+        {{with .Errors.Get "Summary"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <textarea name='summary'>{{.Get "summary"}}</textarea>
+      </div>
+      <div class="create-btn"> 
         <input class="submit-btn" type='submit' value='Publish Post'>
       </div>
     {{end}}

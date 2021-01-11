@@ -18,6 +18,8 @@ type Post struct {
 	Author   string
 	Content  string
 	Modified time.Time
+	Category string
+	Summary  string
 }
 
 type PostEx struct {
@@ -26,6 +28,8 @@ type PostEx struct {
 	Author   string
 	Content  template.HTML
 	Modified time.Time
+	Category string
+	Summary  string
 }
 
 type Author struct {
