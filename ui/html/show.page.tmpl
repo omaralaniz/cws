@@ -5,8 +5,8 @@
 
 {{define "headline"}}
   {{with .PostEx}}
-    <div class="show-header-container">
-      <div class="header title">{{.Title}}</div>
+    <div class="header show-header">
+      <div class="title">{{.Title}}</div>
       <p class="body date">{{humanDate .Modified}}</p>
     </div>
     <div class="line">
@@ -16,7 +16,5 @@
   {{end}}
 {{end}} 
 {{define "main"}}
-  <div class="body show-container">
-    {{.PostEx.Content}}
-  </div>
-{{end}}
+  {{.PostEx.Content}}
+{{end}}E

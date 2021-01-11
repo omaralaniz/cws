@@ -1,0 +1,134 @@
+@use 'var';
+@use 'list';
+@use 'article';
+@use 'forms';
+@use 'nav';
+
+
+:root{
+  font-family: var.$main-text;
+  font-size:60px;
+  color: var.$text-color
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  box-sizing: border-box;
+  background: var.$bg-color;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input{
+  height: .50rem;
+  margin: 0 0 .20rem 0;  
+  background: #f7f3ed;
+  
+  transition: 250ms;
+}
+
+/*Displays "none" when screen switches btwn big and mobile*/
+
+//Add this to an element if it is mobile specific
+@media only screen and (min-width:600px){
+  .mobile{
+    display:none;
+  } 
+}
+
+//Add this to an element if it is large screen specific
+@media only screen and (max-width:600px){
+  .big{
+    display:none;
+  } 
+}
+
+
+/*Text Specifications*/
+
+.header{
+  font-family: var.$alt-text;
+  padding: .30rem 0 0 0;
+}
+
+@media only screen and (max-width: 600px){
+  .header{
+    font-size: .50rem;
+  }
+}
+
+.headline{
+  font-family: var.$alt-text;
+  font-size: .50rem;
+  letter-spacing: -.03rem;
+}
+
+
+.body {
+  font-size: .25rem;
+}
+
+.sub-text{
+  font-size: .20rem;
+}
+
+
+.nav-text{
+  font-size: .22rem;
+}
+
+/*The container for the page*/
+
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 0 0 1rem;
+  overflow-x: clip;
+
+  height: 100vh;
+}
+
+@media only screen and (max-width: 600px){
+  .container{
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .container{
+    margin: 0 0 0 1rem;
+  }
+}
+
+.content{
+  display: flex;
+  flex-flow: column;
+  align-items:left;
+  margin: 1rem 0 0 0;
+}
+
+.content{
+  display: flex;
+  flex-flow: column;
+  align-items:left;
+  margin: 1rem 0 0 0;
+}
+
+@media only screen and (max-width: 600px){
+  .content{
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .content{
+    width: 65vw;
+  }
+}

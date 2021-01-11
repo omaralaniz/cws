@@ -1,0 +1,51 @@
+@use 'var';
+
+
+.header.show-header{
+  display: flex;
+  flex-flow: row;
+}
+
+@media only screen and (min-width: 600px){
+  .header.show-header{
+    width: 65vw;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .header.show-header{
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .title{
+    letter-spacing: -.07rem;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .title{
+    letter-spacing: -.05rem;
+  }
+}
+
+.body.date{
+  margin: 0 0 0 auto;
+  align-self: end;
+}
+
+hr{
+  margin: 0;
+  padding: 0;
+}
+
+.body.author{
+  text-align: left;
+  margin: 0;
+}
+
+code{
+  padding: .25rem;
+  background-color: #e6cba4;
+}

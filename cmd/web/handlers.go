@@ -24,6 +24,23 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func (app *application) about(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "about.page.tmpl", &templateData{})
+}
+
+func (app *application) category(w http.ResponseWriter, r *http.Request) {
+	category := chi.URLParam(r, "category")
+	topic, err := app.posts.Category(category)
+	if err != nil {
+		app.serverError(w, err)
+		return
+	}
+
+	app.render(w, r, "category.page.tmpl", &templateData{
+		Posts: topic,
+	})
+}
+
 func (app *application) showArticle(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil || id < 1 {
@@ -63,7 +80,7 @@ func (app *application) createArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	form := forms.New(r.PostForm)
-	form.Required("title", "author", "content")
+	form.Required("title", "author", "content", "category")
 	form.MaxLength("title", 100)
 
 	if !form.Valid() {
@@ -71,7 +88,7 @@ func (app *application) createArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := app.posts.Insert(form.Get("title"), form.Get("author"), form.Get("content"))
+	id, err := app.posts.Insert(form.Get("title"), form.Get("author"), form.Get("category"), form.Get("content"), form.Get("summary"))
 	if err != nil {
 		app.serverError(w, err)
 		return

@@ -14,6 +14,8 @@ func (app *application) routes() http.Handler {
 	r.Use(secureHeaders)
 
 	r.With(app.session.Enable).Get("/", app.home)
+	r.With(app.session.Enable).Get("/about", app.about)
+	r.With(app.session.Enable).Get("/{category}", app.category)
 	r.Route("/post", func(r chi.Router) {
 		r.Use(app.session.Enable)
 		r.Get("/create", app.createArticleForm)

@@ -3,7 +3,7 @@
 {{define "headline"}}{{end}}
 
 {{define "main"}}
-  <form class="create-container" action='/author/login' method='POST'>
+  <form class="form-container" action='/author/login' method='POST'>
     {{with .Form}}  
       {{with .Errors.Get "generic"}}
         <div class='error'>{{.}}</div>
@@ -16,7 +16,7 @@
         <label>Password:</label>
         <input type='password' name='password'>
       </div>
-      <div class="create-btn">
+      <div class="form-btn">
         <input class="submit-btn" type='submit' value='Sign Up'>
       </div>
     {{end}}

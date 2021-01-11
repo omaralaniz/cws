@@ -3,7 +3,7 @@
 {{define "headline"}}{{end}}
 
 {{define "main"}}
-  <form class="create-container" action='/author/signup' method='POST'>
+  <form class="form-container" action='/author/signup' method='POST'>
     {{with .Form}}  
       <div>
         <label>Name:</label>
@@ -26,7 +26,7 @@
         {{end}}
         <input type='password' name='password'>
       </div>
-      <div class="create-btn">
+      <div class="form-btn">
         <input class="submit-btn" type='submit' value='Sign Up'>
       </div>
     {{end}}

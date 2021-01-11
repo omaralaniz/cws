@@ -61,3 +61,7 @@ func (app *application) markdownToHtml(content []byte) template.HTML {
 
 	return body
 }
+
+func (app *application) isAuthenticated(r *http.Request) bool {
+	return app.session.Exists(r, "authenticatedUserID")
+}
