@@ -12,10 +12,6 @@ nav a{
   color: var.$text-color;
 }
 
-// nav a:hover{
-//   color: var.$focused-color
-// }
-
 nav a.live{
   display: none;
 }
@@ -51,10 +47,10 @@ li a {
   transition: 100ms ease;
   top: 0;
 
-  background-image: -webkit-linear-gradient(top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-  background-image: -moz-linear-gradient(top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-  background-image: -ms-linear-gradient(top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-  background-image: linear-gradient(to bottom, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
+  @include var.bar((top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
+  @include var.vanillaBar((to bottom, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
+  @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3));
+  
   background-size: 6px 100%;
   background-repeat: no-repeat;
   background-position: right; 
@@ -77,6 +73,9 @@ input[type=checkbox] + label{
   bottom: 0;
   right: 0;
   transition: 100ms;
+  img{
+    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3));
+  }
 }
 
 .topics-nav{
@@ -91,10 +90,6 @@ input[type=checkbox] + label{
   a{
     color: var.$text-color;
   }
-
-  // a:hover{
-  //   color: var.$focused-color;
-  // }
 }
 
 .nav-item{
@@ -168,10 +163,8 @@ input[type=checkbox] + label{
 
   input[type=checkbox]:checked ~ ul{
     background: #F1DEBF;
-    background-image: -webkit-linear-gradient(right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-    background-image: -moz-linear-gradient(right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-    background-image: -ms-linear-gradient(right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
-    background-image: linear-gradient(to left, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
+    @include var.bar((right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
+    @include var.vanillaBar((to left, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
     background-size: 100% 6px;
     background-repeat: no-repeat;
     background-position: top; 
@@ -179,7 +172,7 @@ input[type=checkbox] + label{
 
 
   input[type=checkbox]:checked + label{
-    filter: grayscale(60%);
+    transform: scale(.80);
   }
 }
 

@@ -270,6 +270,9 @@ li a {
   background-image: -moz-linear-gradient(top, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
   background-image: -ms-linear-gradient(top, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
   background-image: linear-gradient(to bottom, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
+  -webkit-box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
   background-size: 6px 100%;
   background-repeat: no-repeat;
   background-position: right;
@@ -292,6 +295,11 @@ input[type=checkbox] + label {
   bottom: 0;
   right: 0;
   transition: 100ms;
+}
+input[type=checkbox] + label img {
+  -webkit-box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 .topics-nav {
@@ -385,7 +393,7 @@ input[type=checkbox] + label {
   }
 
   input[type=checkbox]:checked + label {
-    filter: grayscale(60%);
+    transform: scale(0.8);
   }
 }
 @media only screen and (min-width: 600px) {

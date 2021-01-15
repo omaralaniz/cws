@@ -11,3 +11,14 @@ $alt-text: 'Rufina', serif;
   -moz-box-shadow: $property; 
   box-shadow: $property; 
 }
+
+
+@mixin bar($prop){
+  background-image: -webkit-linear-gradient($prop);
+  background-image: -moz-linear-gradient($prop);
+  background-image: -ms-linear-gradient($prop);
+}
+
+@mixin vanillaBar($prop){
+  background-image: linear-gradient($prop);
+}

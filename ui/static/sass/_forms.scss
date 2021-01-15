@@ -79,7 +79,7 @@ select{
   color: var.$text-color;
   &:hover{
     transform: scale(1.05);
-    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3))
+    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3));
   }
 }
 
