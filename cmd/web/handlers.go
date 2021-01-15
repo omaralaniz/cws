@@ -58,7 +58,7 @@ func (app *application) showArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	content := app.markdownToHtml([]byte(post.Content))
+	content := app.markdownToHTML([]byte(post.Content))
 	postEx := &models.PostEx{ID: post.ID, Title: post.Title, Author: post.Author, Content: content, Modified: post.Modified}
 
 	app.render(w, r, "show.page.tmpl", &templateData{

@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 70vw;
 }
 
 .title-input{
@@ -27,6 +28,11 @@
   &:hover{
     background: #4AA5FA;
   }
+}
+
+.summary{
+  width: 70vw;
+  height: 25vh;
 }
 
 label{

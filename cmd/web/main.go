@@ -14,6 +14,10 @@ import (
 	"github.com/omaralaniz/computerandwebstuff/pkg/models/postgres"
 )
 
+type contextKey string
+
+const contextKeyIsAuthenticated = contextKey("isAuthenticated")
+
 type application struct {
 	infoLog       *log.Logger
 	errorLog      *log.Logger
@@ -25,7 +29,7 @@ type application struct {
 
 func main() {
 	addr := flag.String("addr", ":4000", "HTTP network address")
-	uri := flag.String("uri", "test", "Postgres URI")
+	uri := flag.String("uri", "postgres://postgres:i_omara03@localhost:5434/cws_blog", "Postgres URI")
 	secret := flag.String("secret", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret key")
 	flag.Parse()
 
@@ -46,6 +50,8 @@ func main() {
 
 	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
+	session.Secure = true
+	session.SameSite = http.SameSiteStrictMode
 
 	app := &application{
 		infoLog:       infoLog,

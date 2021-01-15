@@ -32,7 +32,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   gap: 1rem 1rem;
-  margin: 0 0 1rem 0;
 }
 
 .headline .post-title {
@@ -45,11 +44,9 @@
   max-height: 120px;
 }
 
-.sub-text.read-more {
-  display: block;
-  text-align: left;
-  padding: 0.2rem 0 0 0;
-  margin: 0;
+.post {
+  text-decoration: none;
+  color: #51473D;
 }
 
 .header.show-header {
@@ -64,7 +61,7 @@
 }
 @media only screen and (max-width: 600px) {
   .header.show-header {
-    width: 80vw;
+    width: 90vw;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -92,9 +89,28 @@ hr {
   margin: 0;
 }
 
-code {
+pre {
   padding: 0.25rem;
-  background-color: #e6cba4;
+  background-color: #F1DEBF;
+  border-radius: 0.1rem;
+}
+
+code {
+  display: block;
+  overflow: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  code {
+    font-size: 0.2rem;
+  }
+}
+.content p img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* Create Post */
@@ -102,6 +118,7 @@ code {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 70vw;
 }
 
 .title-input {
@@ -121,6 +138,11 @@ code {
 }
 .submit-btn:hover {
   background: #4AA5FA;
+}
+
+.summary {
+  width: 70vw;
+  height: 25vh;
 }
 
 label {
@@ -210,10 +232,6 @@ nav a {
   color: #51473D;
 }
 
-nav a:hover {
-  color: #4AA5FA;
-}
-
 nav a.live {
   display: none;
 }
@@ -230,14 +248,24 @@ li {
 
 li a {
   display: block;
-  padding: 8px;
+  padding: 0.25rem 0.25rem 0 0;
+}
+
+.logout {
+  font-family: "Rufina", serif;
+  color: #51473D;
+  background: none;
+  border: none;
+  margin: 0.25rem 0.25rem 0 0;
+  padding: 0;
 }
 
 /*Topics Bar*/
 .topics-bar {
   position: fixed;
   background: #F1DEBF;
-  transition: 250ms ease;
+  transition: 100ms ease;
+  top: 0;
   background-image: -webkit-linear-gradient(top, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
   background-image: -moz-linear-gradient(top, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
   background-image: -ms-linear-gradient(top, #ff6565 0%, #ff8342 20%, #ff8d37 20%, #ff9330 40%, #eed343 40%, #ffd439 60%, #90cc76 60%, #73ca86 80%, #5ab4cc 80%, #4aa5fa 100%);
@@ -263,7 +291,7 @@ input[type=checkbox] + label {
   position: absolute;
   bottom: 0;
   right: 0;
-  transition: 250ms;
+  transition: 100ms;
 }
 
 .topics-nav {
@@ -277,9 +305,6 @@ input[type=checkbox] + label {
 }
 .topics-nav a {
   color: #51473D;
-}
-.topics-nav a:hover {
-  color: #4AA5FA;
 }
 
 .nav-item {
@@ -308,7 +333,7 @@ input[type=checkbox] + label {
 }
 @media only screen and (min-width: 600px) {
   .nav-link {
-    height: 1rem;
+    height: 0.75rem;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -360,7 +385,7 @@ input[type=checkbox] + label {
   }
 
   input[type=checkbox]:checked + label {
-    transform: scale(0.8);
+    filter: grayscale(60%);
   }
 }
 @media only screen and (min-width: 600px) {
@@ -418,6 +443,16 @@ input {
   transition: 250ms;
 }
 
+h2 {
+  font-family: "Rufina", serif;
+  margin: 0;
+}
+
+h3 {
+  font-family: "Rufina", serif;
+  margin: 0;
+}
+
 /*Displays "none" when screen switches btwn big and mobile*/
 @media only screen and (min-width: 600px) {
   .mobile {
@@ -432,7 +467,6 @@ input {
 /*Text Specifications*/
 .header {
   font-family: "Rufina", serif;
-  padding: 0.3rem 0 0 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -444,6 +478,7 @@ input {
   font-family: "Rufina", serif;
   font-size: 0.5rem;
   letter-spacing: -0.03rem;
+  margin-bottom: 0;
 }
 
 .body {
@@ -458,38 +493,35 @@ input {
   font-size: 0.22rem;
 }
 
+.flash {
+  font-family: "Rufina", serif;
+  font-size: 0.25rem;
+  color: #FF6565;
+}
+
 /*The container for the page*/
 .container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 0 0 0 1rem;
   overflow-x: clip;
-  height: 100vh;
+  height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
   .container {
-    margin: 0;
+    margin: 0 0 1rem 0;
   }
 }
 @media only screen and (min-width: 600px) {
   .container {
-    margin: 0 0 0 1rem;
+    margin: 1rem 0 1rem 1rem;
   }
 }
 .content {
   display: flex;
   flex-flow: column;
-  align-items: left;
-  margin: 1rem 0 0 0;
-}
-
-.content {
-  display: flex;
-  flex-flow: column;
-  align-items: left;
-  margin: 1rem 0 0 0;
+  margin: 0.75rem 0 0;
 }
 
 @media only screen and (max-width: 600px) {

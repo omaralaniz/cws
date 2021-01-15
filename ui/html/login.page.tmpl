@@ -4,6 +4,7 @@
 
 {{define "main"}}
   <form class="form-container" action='/author/login' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
     {{with .Form}}  
       {{with .Errors.Get "generic"}}
         <div class='error'>{{.}}</div>
@@ -17,7 +18,7 @@
         <input type='password' name='password'>
       </div>
       <div class="form-btn">
-        <input class="submit-btn" type='submit' value='Sign Up'>
+        <input class="submit-btn" type='submit' value='Login'>
       </div>
     {{end}}
   </form>

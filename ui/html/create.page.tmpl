@@ -4,6 +4,7 @@
 
 {{define "main"}}
   <form class="create-container" action='/post/create' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
     {{with .Form}}  
       <div  class="body create-title">
         <label class="title-lable">Title:</label>
@@ -36,21 +37,19 @@
           <option value="misc">Miscellaneous</option>
         </select>
       </div>
-
+      <div class="body">
+        <label class="content-label">Summary:</label>
+        {{with .Errors.Get "Summary"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <textarea class='summary' name='summary'>{{.Get "summary"}}</textarea>
+      </div>
       <div class="body create-content">
         <label class="content-label">Content:</label>
         {{with .Errors.Get "content"}}
           <label class='errors'>{{.}}</label>
         {{end}}
         <textarea name='content'>{{.Get "content"}}</textarea>
-      </div>
-
-      <div class="body">
-        <label class="content-label">Summary:</label>
-        {{with .Errors.Get "Summary"}}
-          <label class='errors'>{{.}}</label>
-        {{end}}
-        <textarea name='summary'>{{.Get "summary"}}</textarea>
       </div>
       <div class="create-btn"> 
         <input class="submit-btn" type='submit' value='Publish Post'>

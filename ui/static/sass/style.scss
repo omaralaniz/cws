@@ -33,6 +33,14 @@ input{
   transition: 250ms;
 }
 
+h2{
+  font-family: var.$alt-text;
+  margin: 0;
+} 
+h3{
+  font-family: var.$alt-text;
+  margin: 0;
+}
 /*Displays "none" when screen switches btwn big and mobile*/
 
 //Add this to an element if it is mobile specific
@@ -54,7 +62,6 @@ input{
 
 .header{
   font-family: var.$alt-text;
-  padding: .30rem 0 0 0;
 }
 
 @media only screen and (max-width: 600px){
@@ -67,6 +74,7 @@ input{
   font-family: var.$alt-text;
   font-size: .50rem;
   letter-spacing: -.03rem;
+  margin-bottom: 0;
 }
 
 
@@ -83,42 +91,39 @@ input{
   font-size: .22rem;
 }
 
+.flash{
+  font-family: var.$alt-text;
+  font-size: .25rem;
+  color: var.$alt-color;
+}
+
 /*The container for the page*/
 
 .container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 0 0 0 1rem;
   overflow-x: clip;
 
-  height: 100vh;
+  height: 100%;
 }
 
 @media only screen and (max-width: 600px){
   .container{
-    margin: 0;
+    margin: 0 0 1rem 0;
   }
 }
 
 @media only screen and (min-width: 600px){
   .container{
-    margin: 0 0 0 1rem;
+    margin: 1rem 0 1rem 1rem;
   }
 }
 
 .content{
   display: flex;
   flex-flow: column;
-  align-items:left;
-  margin: 1rem 0 0 0;
-}
-
-.content{
-  display: flex;
-  flex-flow: column;
-  align-items:left;
-  margin: 1rem 0 0 0;
+  margin: .75rem 0  0;
 }
 
 @media only screen and (max-width: 600px){

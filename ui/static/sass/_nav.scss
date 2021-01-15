@@ -12,9 +12,9 @@ nav a{
   color: var.$text-color;
 }
 
-nav a:hover{
-  color: var.$focused-color
-}
+// nav a:hover{
+//   color: var.$focused-color
+// }
 
 nav a.live{
   display: none;
@@ -32,15 +32,24 @@ li {
 
 li a {
   display: block;
-  padding: 8px;
+  padding: .25rem .25rem 0 0;
 }
 
+.logout{
+  font-family: "Rufina", serif;
+  color: var.$text-color;
+  background: none;
+  border: none;
+  margin: .25rem .25rem 0 0;
+  padding: 0;
+}
 
 /*Topics Bar*/
 .topics-bar{
   position: fixed;
   background: #F1DEBF;
-  transition: 250ms ease;
+  transition: 100ms ease;
+  top: 0;
 
   background-image: -webkit-linear-gradient(top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
   background-image: -moz-linear-gradient(top, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%);
@@ -67,25 +76,8 @@ input[type=checkbox] + label{
   position: absolute;
   bottom: 0;
   right: 0;
-  transition: 250ms;
+  transition: 100ms;
 }
-
-
-// .nav-btn{
-//   position: relative;
-//   z-index: 1;
-//   img{
-//     &:active{
-//       transform: scale(.90);
-//     }
-//   }
-// }
-
-// .toggler{
-//   position: fixed;
-//   z-index: 0;
-// }
-
 
 .topics-nav{
   list-style: none;
@@ -100,9 +92,9 @@ input[type=checkbox] + label{
     color: var.$text-color;
   }
 
-  a:hover{
-    color: var.$focused-color;
-  }
+  // a:hover{
+  //   color: var.$focused-color;
+  // }
 }
 
 .nav-item{
@@ -131,7 +123,7 @@ input[type=checkbox] + label{
 
 @media only screen and (min-width: 600px){
   .nav-link{
-    height: 1rem;
+    height: .75rem;
   }
 }
 
@@ -187,7 +179,7 @@ input[type=checkbox] + label{
 
 
   input[type=checkbox]:checked + label{
-    transform: scale(.80);
+    filter: grayscale(60%);
   }
 }
 

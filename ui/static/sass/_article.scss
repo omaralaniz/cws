@@ -14,7 +14,7 @@
 
 @media only screen and (max-width: 600px){
   .header.show-header{
-    width: 80vw;
+    width: 90vw;
   }
 }
 
@@ -45,7 +45,31 @@ hr{
   margin: 0;
 }
 
-code{
+pre{
   padding: .25rem;
-  background-color: #e6cba4;
+  background-color: var.$alt-bg-color;
+  border-radius: .10rem;
+}
+
+code{
+  display: block;
+  overflow: auto;
+}
+
+@media only screen and (max-width: 600px){
+  code{
+    font-size: .20rem;
+  }
+}
+
+.content{
+  p{
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: auto;
+    }
+  }
 }

@@ -11,11 +11,10 @@
     <p class="sub-headline">Latest</p>
     <div class="post-container">
     {{range .Posts}}
-      <div>
-        <p class="headline post-title">{{.Title}}</p>
+      <a class="post" href="/post/{{.ID}}">
+        <p class="headline">{{.Title}}</p>
         <p class="body post-content">{{.Summary}}</p>
-        <a class="sub-text read-more" href="/post/{{.ID}}">Read More</a>
-      </div>
+      </a>
     {{end}}
     </div>
 {{end}} 

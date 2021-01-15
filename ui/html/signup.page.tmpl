@@ -4,6 +4,7 @@
 
 {{define "main"}}
   <form class="form-container" action='/author/signup' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
     {{with .Form}}  
       <div>
         <label>Name:</label>

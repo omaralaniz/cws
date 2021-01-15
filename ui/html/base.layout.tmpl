@@ -18,6 +18,14 @@
         <li><a href="#">Contact</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/">Home</a></li>
+        <li>
+          {{if .IsAuthenticated}}
+            <form action="/author/logout" method="POST">
+              <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+              <button class="logout nav-text">Logout</button>
+            </form>
+          {{end}}
+        </li>
       </ul>
     </nav>
     <div class="topics-bar">

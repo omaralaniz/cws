@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"runtime/debug"
 
+	"github.com/justinas/nosurf"
 	"github.com/russross/blackfriday/v2"
 )
 
@@ -32,6 +33,8 @@ func (app *application) addDefault(td *templateData, r *http.Request) *templateD
 	}
 
 	td.Flash = app.session.PopString(r, "flash")
+	td.CSRFToken = nosurf.Token(r)
+	td.IsAuthenticated = app.isAuthenticated(r)
 	return td
 }
 
@@ -52,10 +55,9 @@ func (app *application) render(w http.ResponseWriter, r *http.Request, name stri
 	buf.WriteTo(w)
 }
 
-func (app *application) markdownToHtml(content []byte) template.HTML {
-	renderer := blackfriday.NewHTMLRenderer(blackfriday.HTMLRendererParameters{Flags: blackfriday.CompletePage})
-
-	parsed := blackfriday.Run(content, blackfriday.WithRenderer(renderer), blackfriday.WithExtensions(blackfriday.FencedCode))
+func (app *application) markdownToHTML(content []byte) template.HTML {
+	trimedContent := bytes.ReplaceAll(content, []byte("\r"), []byte(""))
+	parsed := blackfriday.Run(trimedContent, blackfriday.WithExtensions(blackfriday.CommonExtensions))
 
 	body := template.HTML(parsed)
 
@@ -63,5 +65,9 @@ func (app *application) markdownToHtml(content []byte) template.HTML {
 }
 
 func (app *application) isAuthenticated(r *http.Request) bool {
-	return app.session.Exists(r, "authenticatedUserID")
+	isAuthenticated, ok := r.Context().Value(contextKeyIsAuthenticated).(bool)
+	if !ok {
+		return false
+	}
+	return isAuthenticated
 }
