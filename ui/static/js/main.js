@@ -10,15 +10,15 @@ for(var i = 0; i < navLinks.length; i++){
 
 var colors = ['#4AA5FA', '#73CA86', '#FF9330', '#FF6565']; 
 
-var posts = document.querySelectorAll( 'a' );
+var links = document.querySelectorAll( 'a' );
 
 
-posts.forEach(post => {
-  post.onmouseover = function() {
+links.forEach(link => {
+  link.onmouseover = function() {
     var randomcolor = colors[Math.floor(Math.random() * colors.length)];
     this.style.color = randomcolor;
   };
-  post.onmouseout = function() {
+  link.onmouseout = function() {
     this.style.color = '#51473D';
   };
 });

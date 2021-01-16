@@ -64,6 +64,29 @@ li a {
   transition: 250ms ease;
 }
 
+.btn{
+  width:36px;
+}
+
+.block {
+  width: 36px;
+  height: 10px;
+}
+
+.row1{
+  position: relative;
+  transition: all 400ms ease;
+  background: rgb(74,165,250);
+  background: linear-gradient(to right, rgba(74,165,250,1) 0%, rgba(74,165,250,1) 33%, rgba(115,202,134,1) 33%, rgba(115,202,134,1) 66%, rgba(255,212,57,1) 66%, rgba(255,212,57,1) 100%);
+}
+
+.row2{
+  position: relative;
+  transition: all 400ms ease;
+  background: rgb(142,103,226);
+  background: linear-gradient(to right, rgba(142,103,226,1) 0%, rgba(142,103,226,1) 33%, rgba(255,101,101,1) 33%, rgba(255,101,101,1) 66%, rgba(255,147,48,1) 66%, rgba(255,147,48,1) 100%);
+}
+
 input[type=checkbox]{
   display: none;
 }
@@ -72,10 +95,8 @@ input[type=checkbox] + label{
   position: absolute;
   bottom: 0;
   right: 0;
+  margin: 0 0 .25rem 0;
   transition: 100ms;
-  img{
-    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3));
-  }
 }
 
 .topics-nav{
@@ -132,6 +153,9 @@ input[type=checkbox] + label{
 .links-container{
   display: flex;
   height: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 175px;
 }
 
 .link-text{
@@ -139,7 +163,7 @@ input[type=checkbox] + label{
   white-space: nowrap;
   transition: 250ms;
   img{
-    padding: 16px 16px 0 0;
+    padding: .25rem 0 .25rem 0;
   }
 }
 
@@ -154,7 +178,7 @@ input[type=checkbox] + label{
 
   li a {
     padding: 0;
-  }
+  } 
 
   input[type=checkbox]:checked ~ ul .link-text{
     display: inline;
@@ -172,7 +196,12 @@ input[type=checkbox] + label{
 
 
   input[type=checkbox]:checked + label{
-    transform: scale(.80);
+    .row1{
+      transform: rotate(135deg) translate(7px, -7px) scale(.70);
+    }
+    .row2{
+      transform: rotate(-135deg)  scale(.70);
+    }
   }
 }
 
