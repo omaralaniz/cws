@@ -28,8 +28,8 @@ html{
 input{
   height: .50rem;
   margin: 0 0 .20rem 0;  
-  background: #f7f3ed;
-  
+  background: var.$alt-bg-color;
+  color: var.$text-color;
   transition: 250ms;
 }
 
@@ -41,6 +41,20 @@ h3{
   font-family: var.$alt-text;
   margin: 0;
 }
+h4{
+  font-family: var.$alt-text;
+  margin: 0;
+  padding: .20rem 0 0 0;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.indent{
+  margin: 0 0 0 .50rem;
+}
+
 /*Displays "none" when screen switches btwn big and mobile*/
 
 //Add this to an element if it is mobile specific
@@ -110,13 +124,13 @@ h3{
 
 @media only screen and (max-width: 600px){
   .container{
-    margin: 0 0 1rem 0;
+    margin: .50rem 0 1rem 0;
   }
 }
 
 @media only screen and (min-width: 600px){
   .container{
-    margin: 1rem 0 1rem 1rem;
+    margin: .50rem 0 1rem 1rem;
   }
 }
 
@@ -128,7 +142,7 @@ h3{
 
 @media only screen and (max-width: 600px){
   .content{
-    width: 80vw;
+    width: 90vw;
   }
 }
 

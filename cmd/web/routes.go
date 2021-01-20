@@ -20,6 +20,8 @@ func (app *application) routes() http.Handler {
 		r.Use(dynmaicMiddleware...)
 		r.With(app.authenticationRequired).Get("/create", app.createArticleForm)
 		r.With(app.authenticationRequired).Post("/create", app.createArticle)
+		r.With(app.authenticationRequired).Get("/edit/{id}", app.editArticleForm)
+		r.With(app.authenticationRequired).Post("/edit/{id}", app.editArticle)
 		r.Get("/{id}", app.showArticle)
 	})
 

@@ -16,19 +16,19 @@ nav a.live{
   display: none;
 }
 
-ul{
+.nav-ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-li {
+.nav-li {
   float: right;
 }
 
-li a {
+.nav-a{
   display: block;
-  padding: .25rem .25rem 0 0;
+  padding: .25rem .25rem 0 0; 
 }
 
 .logout{
@@ -43,7 +43,7 @@ li a {
 /*Topics Bar*/
 .topics-bar{
   position: fixed;
-  background: #F1DEBF;
+  background: var.$alt-bg-color;
   transition: 100ms ease;
   top: 0;
 
@@ -176,7 +176,7 @@ input[type=checkbox] + label{
     width: 4rem;
   }
 
-  li a {
+  .nav-a{
     padding: 0;
   } 
 
@@ -186,7 +186,7 @@ input[type=checkbox] + label{
   }
 
   input[type=checkbox]:checked ~ ul{
-    background: #F1DEBF;
+    background: var.$alt-bg-color;
     @include var.bar((right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
     @include var.vanillaBar((to left, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
     background-size: 100% 6px;

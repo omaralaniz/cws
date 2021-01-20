@@ -19,7 +19,7 @@ links.forEach(link => {
     this.style.color = randomcolor;
   };
   link.onmouseout = function() {
-    this.style.color = '#51473D';
+    this.style.color = '#F8EBD8';
   };
 });
 

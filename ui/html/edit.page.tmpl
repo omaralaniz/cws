@@ -1,0 +1,57 @@
+{{template "base" .}}
+{{define "title"}}Edit Post{{end}}
+{{define "headline"}}{{end}}
+
+{{define "main"}}
+  <form class="create-container" action='/post/edit/{{.Post.ID}}' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">  
+      <div  class="body create-title">
+        <label class="title-lable">Title:</label>
+        {{with .Form.Errors.Get "title"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <input class='title-input' type='text' name='title' value='{{.Post.Title}}'>
+      </div>
+      <div  class="body create-author">
+        <label class="author-label">Author:</label>
+        {{with .Form.Errors.Get "author"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <input type='text' name='author' value='{{.Post.Author}}'>
+      </div>
+
+      <div class="select">
+        <label class="select-label">Choose a category:</label>
+        {{with .Form.Errors.Get "category"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <select name="category">
+          <option value="coding-challenges">Coding Challenges</option>
+          <option value="computer-networking">Computer Networking</option>
+          <option value="databases">Databases</option>
+          <option value="go">Go</option>
+          <option value="js">JavaScript</option>
+          <option value="security">Security</option>
+          <option value="web-apps">Web Apps</option>
+          <option value="misc">Miscellaneous</option>
+        </select>
+      </div>
+      <div class="body">
+        <label class="content-label">Summary:</label>
+        {{with .Form.Errors.Get "Summary"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <textarea class='summary' name='summary'>{{.Post.Summary}}</textarea>
+      </div>
+      <div class="body create-content">
+        <label class="content-label">Content:</label>
+        {{with .Form.Errors.Get "content"}}
+          <label class='errors'>{{.}}</label>
+        {{end}}
+        <textarea name='content'>{{.Post.Content}}</textarea>
+      </div>
+      <div class="create-btn"> 
+        <input class="submit-btn" type='submit' value='Publish Post'>
+      </div>
+  </form>
+{{end}}

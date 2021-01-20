@@ -29,7 +29,7 @@
 
 .post-container{
   display: grid;
-  overflow: scroll;
+  overflow: auto;
   scrollbar-width: none; 
   grid-template-columns: 1fr;
   grid-template-rows: auto ;

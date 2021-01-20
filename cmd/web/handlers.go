@@ -81,7 +81,7 @@ func (app *application) createArticle(w http.ResponseWriter, r *http.Request) {
 
 	form := forms.New(r.PostForm)
 	form.Required("title", "author", "content", "category")
-	form.MaxLength("title", 100)
+	form.MaxLength("title", 60)
 
 	if !form.Valid() {
 		app.render(w, r, "create.page.tmpl", &templateData{Form: form})
@@ -95,6 +95,61 @@ func (app *application) createArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	app.session.Put(r, "flash", "Post Successfully Created!")
+
+	http.Redirect(w, r, fmt.Sprintf("/post/%d", id), http.StatusSeeOther)
+}
+
+func (app *application) editArticleForm(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(chi.URLParam(r, "id"))
+	if err != nil || id < 1 {
+		app.notFound(w)
+		return
+	}
+
+	post, err := app.posts.Get(id)
+	if err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			app.notFound(w)
+		} else {
+			app.serverError(w, err)
+		}
+		return
+	}
+
+	app.render(w, r, "edit.page.tmpl", &templateData{
+		Post: post, Form: forms.New(nil),
+	})
+}
+
+func (app *application) editArticle(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(chi.URLParam(r, "id"))
+	if err != nil || id < 1 {
+		app.notFound(w)
+		return
+	}
+
+	err = r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	form := forms.New(r.PostForm)
+	form.Required("title", "author", "content", "category")
+	form.MaxLength("title", 60)
+
+	if !form.Valid() {
+		app.render(w, r, "edit.page.tmpl", &templateData{Form: form})
+		return
+	}
+
+	id, err = app.posts.Update(id, form.Get("title"), form.Get("author"), form.Get("category"), form.Get("content"), form.Get("summary"))
+	if err != nil {
+		app.serverError(w, err)
+		return
+	}
+
+	app.session.Put(r, "flash", "Post Successfully Updated!")
 
 	http.Redirect(w, r, fmt.Sprintf("/post/%d", id), http.StatusSeeOther)
 }

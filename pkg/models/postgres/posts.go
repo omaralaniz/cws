@@ -26,6 +26,15 @@ func (pM *PostModel) Insert(title, author, category, content, summary string) (i
 	return id, nil
 }
 
+func (pM *PostModel) Update(id int, title, author, category, content, summary string) (int, error) {
+	query := `UPDATE posts SET title=$2, author=$3, category=$4, content=$5, summary=$6, modified=CURRENT_DATE WHERE id=$1`
+	_, err := pM.DB.Exec(context.Background(), query, id, title, author, category, content, summary)
+	if err != nil {
+		return 0, err
+	}
+	return id, nil
+}
+
 func (pM *PostModel) Get(id int) (*models.Post, error) {
 	post := &models.Post{}
 	query := `SELECT id, title, author, category, content, modified, summary FROM posts WHERE id = $1`

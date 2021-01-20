@@ -14,11 +14,11 @@
   </head>
   <body>
     <nav class="big nav-text">
-      <ul>
-        <li><a href="#">Contact</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/">Home</a></li>
-        <li>
+      <ul class="nav-ul">
+        <li class="nav-li"><a class="nav-a" href="#">Contact</a></li>
+        <li class="nav-li"><a class="nav-a" href="/about">About</a></li>
+        <li class="nav-li"><a class="nav-a" href="/">Home</a></li>
+        <li class="nav-li">
           {{if .IsAuthenticated}}
             <form action="/author/logout" method="POST">
               <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">

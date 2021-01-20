@@ -26,13 +26,13 @@
 
 @media only screen and (max-width: 600px){
   .title{
-    letter-spacing: -.05rem;
+    letter-spacing: -.02rem;
   }
 }
 
 .body.date{
   margin: 0 0 0 auto;
-  align-self: end;
+  align-self: flex-end;
 }
 
 hr{
@@ -72,4 +72,9 @@ code{
       height: auto;
     }
   }
+}
+
+.edit{
+  text-decoration: none;
+  color: var.$alt-color;
 }
