@@ -1,29 +1,28 @@
 {{template "base" .}}
-{{define "title"}}Create a New Post{{end}}
+{{define "title"}}Edit Post{{end}}
 {{define "headline"}}{{end}}
 
 {{define "main"}}
-  <form class="create-container" action='/post/create' method='POST'>
-    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-    {{with .Form}}  
+  <form class="create-container" action='/post/edit/{{.Post.ID}}' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">  
       <div  class="body create-title">
         <label class="title-lable">Title:</label>
-        {{with .Errors.Get "title"}}
+        {{with .Form.Errors.Get "title"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <input class='title-input' type='text' name='title' value='{{.Get "title"}}'>
+        <input class='title-input' type='text' name='title' value='{{.Post.Title}}'>
       </div>
       <div  class="body create-author">
         <label class="author-label">Author:</label>
-        {{with .Errors.Get "author"}}
+        {{with .Form.Errors.Get "author"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <input type='text' name='author' value='{{.Get "author"}}'>
+        <input type='text' name='author' value='{{.Post.Author}}'>
       </div>
 
       <div class="select">
         <label class="select-label">Choose a category:</label>
-        {{with .Errors.Get "category"}}
+        {{with .Form.Errors.Get "category"}}
           <label class='errors'>{{.}}</label>
         {{end}}
         <select name="category">
@@ -39,21 +38,20 @@
       </div>
       <div class="body">
         <label class="content-label">Summary:</label>
-        {{with .Errors.Get "Summary"}}
+        {{with .Form.Errors.Get "Summary"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <textarea class='summary' name='summary'>{{.Get "summary"}}</textarea>
+        <textarea class='summary' name='summary'>{{.Post.Summary}}</textarea>
       </div>
       <div class="body create-content">
         <label class="content-label">Content:</label>
-        {{with .Errors.Get "content"}}
+        {{with .Form.Errors.Get "content"}}
           <label class='errors'>{{.}}</label>
         {{end}}
-        <textarea name='content'>{{.Get "content"}}</textarea>
+        <textarea name='content'>{{.Post.Content}}</textarea>
       </div>
       <div class="create-btn"> 
         <input class="submit-btn" type='submit' value='Publish Post'>
       </div>
-    {{end}}
   </form>
 {{end}}

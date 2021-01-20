@@ -2,6 +2,7 @@ package postgres
 
 import (
 	"context"
+	"database/sql"
 	"errors"
 
 	"github.com/jackc/pgconn"
@@ -66,5 +67,16 @@ func (a *AuthorModel) Authenticate(email, password string) (int, error) {
 }
 
 func (a *AuthorModel) Get(id int) (*models.Author, error) {
-	return nil, nil
+	author := &models.Author{}
+
+	query := `SELECT id, name, email, created, active FROM authors WHERE id = $1`
+	err := a.DB.QueryRow(context.Background(), query, id).Scan(&author.ID, &author.Name, &author.Email, &author.Created, &author.Active)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, models.ErrNoRecord
+		} else {
+			return nil, err
+		}
+	}
+	return author, nil
 }

@@ -8,28 +8,30 @@ import (
 
 func (app *application) routes() http.Handler {
 	r := chi.NewRouter()
-
+	dynmaicMiddleware := []func(http.Handler) http.Handler{app.session.Enable, noSurf, app.authenticate}
 	r.Use(app.recoverPanic)
 	r.Use(app.logRequest)
 	r.Use(secureHeaders)
 
-	r.With(app.session.Enable).Get("/", app.home)
-	r.With(app.session.Enable).Get("/about", app.about)
-	r.With(app.session.Enable).Get("/{category}", app.category)
+	r.With(dynmaicMiddleware...).Get("/", app.home)
+	r.With(dynmaicMiddleware...).Get("/about", app.about)
+	r.With(dynmaicMiddleware...).Get("/{category}", app.category)
 	r.Route("/post", func(r chi.Router) {
-		r.Use(app.session.Enable)
-		r.Get("/create", app.createArticleForm)
-		r.Post("/create", app.createArticle)
+		r.Use(dynmaicMiddleware...)
+		r.With(app.authenticationRequired).Get("/create", app.createArticleForm)
+		r.With(app.authenticationRequired).Post("/create", app.createArticle)
+		r.With(app.authenticationRequired).Get("/edit/{id}", app.editArticleForm)
+		r.With(app.authenticationRequired).Post("/edit/{id}", app.editArticle)
 		r.Get("/{id}", app.showArticle)
 	})
 
 	r.Route("/author", func(r chi.Router) {
-		r.Use(app.session.Enable)
+		r.Use(dynmaicMiddleware...)
 		r.Get("/signup", app.signupAuthorForm)
 		r.Post("/signup", app.signupAuthor)
 		r.Get("/login", app.loginAuthorForm)
 		r.Post("/login", app.loginAuthor)
-		r.Post("/logout", app.logoutAuthor)
+		r.With(app.authenticationRequired).Post("/logout", app.logoutAuthor)
 	})
 
 	fileServer := http.FileServer(http.Dir("./ui/static"))

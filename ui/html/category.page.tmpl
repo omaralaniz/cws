@@ -8,11 +8,10 @@
 {{define "main"}}
     <div class="post-container">
     {{range .Posts}}
-      <div>
-        <p class="headline post-title">{{.Title}}</p>
-        <p class="body post-content">{{.Content}}</p>
-        <a class="sub-text read-more" href="/post/{{.ID}}">Read More</a>
-      </div>
+      <a class="post" href="/post/{{.ID}}">
+        <p class="headline">{{.Title}}</p>
+        <p class="body post-content">{{.Summary}}</p>
+      </a>
     {{end}}
     </div>
 {{end}}

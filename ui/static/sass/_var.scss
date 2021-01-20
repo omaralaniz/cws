@@ -1,7 +1,11 @@
-$bg-color: #F8EBD8;
-$alt-bg-color: #F1DEBF;
-$text-color: #51473D;
+// $bg-color: #F8EBD8;
+$bg-color: #443F3A;
+// $alt-bg-color: #F1DEBF;
+$alt-bg-color: #332f2c;
+// $text-color: #51473D;
+$text-color: #F8EBD8;
 $focused-color: #4AA5FA;
+$alt-color: #FF6565;
 $main-text: 'Open Sans', sans-serif;
 $alt-text: 'Rufina', serif;
 
@@ -9,4 +13,15 @@ $alt-text: 'Rufina', serif;
   -webkit-box-shadow: $property;
   -moz-box-shadow: $property; 
   box-shadow: $property; 
+}
+
+
+@mixin bar($prop){
+  background-image: -webkit-linear-gradient($prop);
+  background-image: -moz-linear-gradient($prop);
+  background-image: -ms-linear-gradient($prop);
+}
+
+@mixin vanillaBar($prop){
+  background-image: linear-gradient($prop);
 }

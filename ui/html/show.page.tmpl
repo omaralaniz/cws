@@ -14,7 +14,10 @@
     </div>
     <p class="body author">by {{.Author}}</p>
   {{end}}
+  {{if .IsAuthenticated}}
+    <a class="sub-text edit" href="/post/edit/{{.PostEx.ID}}" method="Get">Edit</a>
+  {{end}}
 {{end}} 
 {{define "main"}}
   {{.PostEx.Content}}
-{{end}}E
+{{end}}

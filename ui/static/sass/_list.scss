@@ -29,12 +29,11 @@
 
 .post-container{
   display: grid;
-  overflow: scroll;
+  overflow: auto;
   scrollbar-width: none; 
   grid-template-columns: 1fr;
   grid-template-rows: auto ;
   gap: 1rem 1rem;
-  margin: 0 0 1rem 0;
 }
 
 .headline{
@@ -50,9 +49,7 @@
   max-height: 120px;
 }
 
-.sub-text.read-more{
-  display: block;
-  text-align: left;
-  padding: .20rem 0 0 0;
-  margin: 0;
-} 
+.post{
+  text-decoration: none;
+  color: var.$text-color;
+}

@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 70vw;
 }
 
 .title-input{
@@ -19,6 +20,7 @@
   background: #FF6565;
   border: none;
   margin: .20rem 0 0 0;
+  width: 2rem;
   cursor: pointer;
 
   &:focus{
@@ -26,7 +28,13 @@
   }
   &:hover{
     background: #4AA5FA;
+    transform: scale(1.05);
+    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3))
   }
+}
+
+.summary{
+  height: 25vh;
 }
 
 label{
@@ -45,13 +53,11 @@ textarea{
   height: 70vh;
   resize: none;
   transition: 250ms;
-  background: #f7f3ed;
+  background: var.$alt-bg-color;
   color: var.$text-color;
 
-  &:hover{
-    outline: none !important;
-    transform: scale(1.05);
-    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3))
+  @media only screen and (max-width: 600px){
+    width: 80vw;
   }
 }
 
@@ -59,8 +65,6 @@ textarea{
 input{
   &:hover{
     outline: none !important;
-    transform: scale(1.05);
-    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3))
   }
 }
 
@@ -69,12 +73,8 @@ input{
 select{
   height: .50rem;
   transition: 250ms;
-  background: #f7f3ed;
+  background: var.$alt-bg-color;
   color: var.$text-color;
-  &:hover{
-    transform: scale(1.05);
-    @include var.shadow(3px 6px 6px 0 rgba(0, 0, 0, 0.3))
-  }
 }
 
 /*Sign-up & login*/
@@ -85,15 +85,19 @@ select{
     flex-flow: column;
     margin: 1rem;
     align-self: center;
+    align-items: center;
 
     .form-btn{
       text-align: center;
       align-self: center;
     }
+    .user-input{
+      width: 3rem;
+    }
 
     @media only screen and (min-width:600px){
       .form-btn{
-        width: 15vw; 
+        width: 30vw; 
       } 
     }
   }
