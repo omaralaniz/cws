@@ -2,6 +2,7 @@ module github.com/omaralaniz/computerandwebstuff
 
 go 1.15
 
+// +heroku goVersion go1.15
 require (
 	github.com/go-chi/chi v4.1.2+incompatible
 	github.com/golangcollege/sessions v1.2.0
