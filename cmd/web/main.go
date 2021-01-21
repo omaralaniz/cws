@@ -29,8 +29,8 @@ type application struct {
 
 func main() {
 	addr := os.Getenv("ADDR")
-	uri := os.Getenv("URI")
-	secret := os.Getenv("secret")
+	uri := os.Getenv("DATABASE_URL")
+	secret := os.Getenv("SECRET")
 
 	flag.Parse()
 
