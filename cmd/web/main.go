@@ -28,16 +28,19 @@ type application struct {
 }
 
 func main() {
-	addr := os.Getenv("ADDR")
-	uri := os.Getenv("DATABASE_URL")
-	secret := os.Getenv("SECRET")
+	// addr := os.Getenv("ADDR")
+	// uri := os.Getenv("DATABASE_URL")
+	// secret := os.Getenv("SECRET")
+	addr := flag.String("addr", ":4000", "HTTP network address")
+	uri := flag.String("uri", "postgres://postgres:i_omara03@localhost:5434/cws_blog", "Postgres URI")
+	secret := flag.String("secret", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret key")
 
 	flag.Parse()
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
-	db, err := openDB(uri)
+	db, err := openDB(*uri)
 	if err != nil {
 		errorLog.Fatal(err)
 	}
@@ -49,7 +52,7 @@ func main() {
 		errorLog.Fatal(err)
 	}
 
-	session := sessions.New([]byte(secret))
+	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
 	session.Secure = true
 	session.SameSite = http.SameSiteStrictMode
@@ -63,7 +66,7 @@ func main() {
 		templateCache: templateCache,
 	}
 	srv := &http.Server{
-		Addr:     addr,
+		Addr:     *addr,
 		ErrorLog: errorLog,
 		Handler:  app.routes(),
 	}
