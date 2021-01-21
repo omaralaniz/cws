@@ -28,12 +28,9 @@ type application struct {
 }
 
 func main() {
-	// addr := os.Getenv("ADDR")
-	// uri := os.Getenv("DATABASE_URL")
-	// secret := os.Getenv("SECRET")
-	addr := flag.String("addr", ":4000", "HTTP network address")
-	uri := flag.String("uri", "postgres://postgres:i_omara03@localhost:5434/cws_blog", "Postgres URI")
-	secret := flag.String("secret", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret key")
+	addr := os.Getenv("ADDR")
+	uri := os.Getenv("DATABASE_URL")
+	secret := os.Getenv("SECRET")
 
 	flag.Parse()
 
