@@ -83,8 +83,8 @@ nav a.live{
 .row2{
   position: relative;
   transition: all 400ms ease;
-  background: rgb(142,103,226);
-  background: linear-gradient(to right, rgba(142,103,226,1) 0%, rgba(142,103,226,1) 33%, rgba(255,101,101,1) 33%, rgba(255,101,101,1) 66%, rgba(255,147,48,1) 66%, rgba(255,147,48,1) 100%);
+  background: rgb(165, 136, 226);
+  background: linear-gradient(to right,rgb(165, 136, 226) 0%, rgb(165, 136, 226) 33%, rgba(255,101,101,1) 33%, rgba(255,101,101,1) 66%, rgba(255,147,48,1) 66%, rgba(255,147,48,1) 100%);
 }
 
 input[type=checkbox]{
@@ -161,7 +161,6 @@ input[type=checkbox] + label{
 .link-text{
   display: none;
   white-space: nowrap;
-  transition: 250ms;
   img{
     padding: .25rem 0 .25rem 0;
   }
@@ -191,7 +190,7 @@ input[type=checkbox] + label{
     @include var.vanillaBar((to left, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
     background-size: 100% 6px;
     background-repeat: no-repeat;
-    background-position: top; 
+    background-position: top;
   }
 
 
@@ -222,7 +221,6 @@ input[type=checkbox] + label{
 
   .topics-bar:hover .link-text{
     display: inline;
-    transition: 250ms ease;
   }
 
   .topics{
@@ -233,5 +231,6 @@ input[type=checkbox] + label{
   
   .topics-bar:hover .topics{
     transform: rotate(0deg);
+    text-decoration: underline;
   }
 }
