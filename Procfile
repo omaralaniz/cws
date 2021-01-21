@@ -1,1 +1,1 @@
-web: go run bin/web
+web: bin/web
