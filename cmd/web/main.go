@@ -27,7 +27,7 @@ type application struct {
 }
 
 func main() {
-	addr := os.Getenv("ADDR")
+	addr := os.Getenv("PORT")
 	uri := os.Getenv("DATABASE_URL")
 	secret := os.Getenv("SECRET")
 
