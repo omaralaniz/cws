@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"flag"
 	"html/template"
 	"log"
 	"net/http"
@@ -31,8 +30,6 @@ func main() {
 	addr := os.Getenv("ADDR")
 	uri := os.Getenv("DATABASE_URL")
 	secret := os.Getenv("SECRET")
-
-	flag.Parse()
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
