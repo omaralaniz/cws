@@ -60,7 +60,7 @@ func main() {
 		templateCache: templateCache,
 	}
 	srv := &http.Server{
-		Addr:     addr,
+		Addr:     ":" + addr,
 		ErrorLog: errorLog,
 		Handler:  app.routes(),
 	}
