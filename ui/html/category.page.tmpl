@@ -6,6 +6,7 @@
 {{end}}
 
 {{define "main"}}
+  {{if .Posts}}
     <div class="post-container">
     {{range .Posts}}
       <a class="post" href="/post/{{.ID}}">
@@ -14,4 +15,8 @@
       </a>
     {{end}}
     </div>
+  {{else}}
+    <div class="wip">WORK IN PROGRESS</div>
+    <p class="sub-text">It takes time so chill...</p>
+  {{end}}
 {{end}}

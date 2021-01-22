@@ -50,6 +50,16 @@
   color: #51473D;
 }
 
+.wip {
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  color: #FF6565;
+  text-align: center;
+}
+.wip + p {
+  text-align: center;
+}
+
 .header.show-header {
   display: flex;
   flex-flow: row;

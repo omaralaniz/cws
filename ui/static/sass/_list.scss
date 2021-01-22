@@ -54,3 +54,15 @@
   text-decoration: none;
   color: var.$text-color;
 }
+
+
+.wip{
+  font-family: var.$large-text;
+  font-size: 1rem;
+  color: var.$alt-color;
+  text-align: center;
+  & + p{
+    text-align: center;
+  }
+
+}
