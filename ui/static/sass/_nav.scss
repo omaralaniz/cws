@@ -113,9 +113,6 @@ input[type=checkbox] + label{
   }
 }
 
-.nav-item{
-  width: 100%;
-}
 
 .nav-item:last-child{
   margin: auto 0 0 0;
@@ -133,7 +130,7 @@ input[type=checkbox] + label{
   }
   .link-text{
     display: none;
-    margin: .25rem 0 0 .25rem;
+    margin: .25rem 0 0 0;
   }
 }
 
@@ -142,13 +139,6 @@ input[type=checkbox] + label{
     height: .75rem;
   }
 }
-
-@media only screen and (min-width: 600px){
-  .link-text{
-    margin-left: .25rem;
-  }
-}
-
 
 .links-container{
   display: flex;

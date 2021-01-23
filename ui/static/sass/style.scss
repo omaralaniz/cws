@@ -32,7 +32,9 @@ input{
   color: var.$text-color;
   transition: 250ms;
 }
-
+hr{
+  border: .75px solid var.$text-color;
+}
 h2{
   font-family: var.$alt-text;
   margin: 0;

@@ -346,10 +346,6 @@ input[type=checkbox] + label {
   color: #51473D;
 }
 
-.nav-item {
-  width: 100%;
-}
-
 .nav-item:last-child {
   margin: auto 0 0 0;
 }
@@ -367,17 +363,12 @@ input[type=checkbox] + label {
 
   .link-text {
     display: none;
-    margin: 0.25rem 0 0 0.25rem;
+    margin: 0.25rem 0 0 0;
   }
 }
 @media only screen and (min-width: 600px) {
   .nav-link {
     height: 0.75rem;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .link-text {
-    margin-left: 0.25rem;
   }
 }
 .links-container {
@@ -486,6 +477,10 @@ input {
   background: #F1DEBF;
   color: #51473D;
   transition: 250ms;
+}
+
+hr {
+  border: 0.75px solid #51473D;
 }
 
 h2 {
