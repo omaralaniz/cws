@@ -15,6 +15,7 @@ func (app *application) routes() http.Handler {
 
 	r.With(dynmaicMiddleware...).Get("/", app.home)
 	r.With(dynmaicMiddleware...).Get("/about", app.about)
+	r.With(dynmaicMiddleware...).Get("/contact", app.contact)
 	r.With(dynmaicMiddleware...).Get("/{category}", app.category)
 	r.Route("/post", func(r chi.Router) {
 		r.Use(dynmaicMiddleware...)

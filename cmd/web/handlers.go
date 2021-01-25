@@ -24,6 +24,10 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func (app *application) contact(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "contact.page.tmpl", &templateData{})
+}
+
 func (app *application) about(w http.ResponseWriter, r *http.Request) {
 	app.render(w, r, "about.page.tmpl", &templateData{})
 }
