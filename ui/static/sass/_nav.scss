@@ -17,7 +17,6 @@ nav a.live{
 }
 
 .nav-ul{
-  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -60,12 +59,13 @@ nav a.live{
   position: fixed;
   bottom: 0;
   right: 0;
-  margin: 0 .25rem 0 0;
+  margin: 0;
   transition: 250ms ease;
 }
 
 .btn{
   width:36px;
+  margin: 0 .25rem 0 0;
 }
 
 .block {
@@ -97,12 +97,11 @@ input[type=checkbox] + label{
   right: 0;
   margin: 0 0 .25rem 0;
   transition: 100ms;
+  z-index: 1;
 }
 
 .topics-nav{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +111,6 @@ input[type=checkbox] + label{
     color: var.$text-color;
   }
 }
-
 
 .nav-item:last-child{
   margin: auto 0 0 0;
@@ -146,6 +144,7 @@ input[type=checkbox] + label{
   align-items: center;
   justify-content: space-evenly;
   width: 175px;
+  margin: 0 .25rem 0 0;
 }
 
 .link-text{
@@ -174,7 +173,14 @@ input[type=checkbox] + label{
     transition: 250ms;
   }
 
-  input[type=checkbox]:checked ~ ul{
+  input[type=checkbox]:checked ~ div {
+    transform: scale(1);  
+    opacity: .5;
+
+}
+
+
+  input[type=checkbox]:checked ~  ul{
     background: var.$alt-bg-color;
     @include var.bar((right, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
     @include var.vanillaBar((to left, rgba(255,101,101,1) 0%, rgba(255,131,66,1) 20%, rgba(255,141,55,1) 20%, rgba(255,147,48,1) 40%, rgba(238,211,67,1) 40%, rgba(255,212,57,1) 60%, rgba(144,204,118,1) 60%, rgba(115,202,134,1) 80%, rgba(90,180,204,1) 80%, rgba(74,165,250,1) 100%));
@@ -187,9 +193,11 @@ input[type=checkbox] + label{
   input[type=checkbox]:checked + label{
     .row1{
       transform: rotate(135deg) translate(7px, -7px) scale(.70);
+      background: linear-gradient(to right, rgba(255,101,101,1) 0%, rgba(255,101,101,1) 100%);
     }
     .row2{
       transform: rotate(-135deg)  scale(.70);
+      background: linear-gradient(to right,rgba(255,101,101,1) 0%, rgba(255,101,101,1)100%);
     }
   }
 }

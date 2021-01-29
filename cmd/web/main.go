@@ -27,6 +27,10 @@ type application struct {
 }
 
 func main() {
+	os.Setenv("PORT", "4000")
+	os.Setenv("DATABASE_URL", "postgres://postgres:i_omara03@localhost:5434/cws_blog")
+	os.Setenv("SECRET", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge")
+
 	addr := os.Getenv("PORT")
 	uri := os.Getenv("DATABASE_URL")
 	secret := os.Getenv("SECRET")
