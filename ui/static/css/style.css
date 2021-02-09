@@ -512,6 +512,11 @@ ul {
   list-style-type: none;
 }
 
+img[alt=med] {
+  width: 120px;
+  height: 120px;
+}
+
 .indent {
   margin: 0 0 0 0.5rem;
 }
