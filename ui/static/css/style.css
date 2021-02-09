@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "ruf";
+  src: url("../font/Rufina-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "open";
+  src: url("../font/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rub";
+  src: url("../font/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 @media only screen and (max-width: 600px) {
   .mobile-cws {
     display: block;
@@ -19,7 +37,7 @@
   }
 }
 .sub-headline {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   text-decoration: underline;
   font-size: 0.25rem;
   margin: 0 0 0.5rem 0;
@@ -54,7 +72,7 @@
 }
 
 .wip {
-  font-family: "Rubik", sans-serif;
+  font-family: "rub";
   font-size: 1rem;
   color: #FF6565;
   text-align: center;
@@ -239,7 +257,7 @@ nav {
   position: fixed;
   top: 0;
   right: 0;
-  font-family: "Rufina", serif;
+  font-family: "ruf";
 }
 
 nav a {
@@ -462,7 +480,7 @@ input[type=checkbox] + label {
   }
 }
 :root {
-  font-family: "Open Sans", sans-serif;
+  font-family: "open";
   font-size: 60px;
   color: #51473D;
 }
@@ -494,19 +512,19 @@ hr {
 }
 
 h2 {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   margin: 0;
   padding: 0.5rem 0 0 0;
 }
 
 h3 {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   margin: 0;
   padding: 0.25rem 0 0 0;
 }
 
 h4 {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   margin: 0;
   padding: 0.5rem 0 0 0;
 }
@@ -540,7 +558,7 @@ ul {
 }
 /*Text Specifications*/
 .header {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
 }
 
 @media only screen and (max-width: 600px) {
@@ -549,7 +567,7 @@ ul {
   }
 }
 .headline {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   font-size: 0.5rem;
   letter-spacing: -0.03rem;
   margin-bottom: 0;
@@ -568,7 +586,7 @@ ul {
 }
 
 .flash {
-  font-family: "Rufina", serif;
+  font-family: "ruf";
   font-size: 0.25rem;
   color: #FF6565;
 }

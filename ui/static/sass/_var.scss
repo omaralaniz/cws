@@ -1,3 +1,26 @@
+@font-face{
+  font-family: 'ruf';
+  src: url('../font/Rufina-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'open';
+  src: url('../font/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'rub';
+  src: url('../font/Rubik-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+//TODO: Commented out colors are dark themed site
 $bg-color: #F8EBD8;
 // $bg-color: #443F3A;
 $alt-bg-color: #F1DEBF;
@@ -6,9 +29,9 @@ $text-color: #51473D;
 // $text-color: #F8EBD8;
 $focused-color: #4AA5FA;
 $alt-color: #FF6565;
-$main-text: 'Open Sans', sans-serif;
-$alt-text: 'Rufina', serif;
-$large-text: 'Rubik', sans-serif;
+$main-text: 'open';
+$alt-text: 'ruf';
+$large-text: 'rub';
 
 @mixin shadow($property){
   -webkit-box-shadow: $property;
