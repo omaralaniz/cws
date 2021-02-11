@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: "rub";
-  src: url("../font/RubikMonoOne-Regular.ttf") format("truetype");
+  src: url("../font/Rubik-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -73,6 +73,7 @@
 
 .wip {
   font-family: "rub";
+  font-weight: 900;
   font-size: 1rem;
   color: #FF6565;
   text-align: center;
