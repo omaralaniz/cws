@@ -52,11 +52,21 @@
 }
 
 .post {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
   text-decoration: none;
   color: #51473D;
+}
+@media only screen and (min-width: 600px) {
+  .post {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+  }
+}
+@media only screen and (mex-width: 600px) {
+  .post {
+    display: flex;
+    flex-flow: column;
+  }
 }
 
 .headline .post-title {
@@ -87,7 +97,8 @@
   grid-column-end: 3;
   justify-self: end;
   align-self: end;
-  margin: 0;
+  margin: 0.1rem 0 0 0;
+  font-family: "ruf";
 }
 
 .wip {
