@@ -574,7 +574,11 @@ ul {
 }
 
 .highlight {
-  background: #FFBE31;
+  background: #FFD439;
+}
+
+.chill {
+  color: #4AA5FA;
 }
 
 /*Displays "none" when screen switches btwn big and mobile*/
