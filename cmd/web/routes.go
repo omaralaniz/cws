@@ -13,6 +13,7 @@ func (app *application) routes() http.Handler {
 	r.Use(app.logRequest)
 	r.Use(secureHeaders)
 
+	r.Get("/ping", ping)
 	r.With(dynmaicMiddleware...).Get("/", app.home)
 	r.With(dynmaicMiddleware...).Get("/about", app.about)
 	r.With(dynmaicMiddleware...).Get("/contact", app.contact)

@@ -7,10 +7,13 @@ import (
 	"strconv"
 
 	"github.com/go-chi/chi"
-	"github.com/jackc/pgx/v4"
 	"github.com/omaralaniz/computerandwebstuff/pkg/forms"
 	"github.com/omaralaniz/computerandwebstuff/pkg/models"
 )
+
+func ping(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("PINGED"))
+}
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	latest, err := app.posts.Latest()
@@ -54,7 +57,7 @@ func (app *application) showArticle(w http.ResponseWriter, r *http.Request) {
 
 	post, err := app.posts.Get(id)
 	if err != nil {
-		if errors.Is(err, pgx.ErrNoRows) {
+		if errors.Is(err, models.ErrNoRecord) {
 			app.notFound(w)
 		} else {
 			app.serverError(w, err)
@@ -112,7 +115,7 @@ func (app *application) editArticleForm(w http.ResponseWriter, r *http.Request) 
 
 	post, err := app.posts.Get(id)
 	if err != nil {
-		if errors.Is(err, pgx.ErrNoRows) {
+		if errors.Is(err, models.ErrNoRecord) {
 			app.notFound(w)
 		} else {
 			app.serverError(w, err)
@@ -195,8 +198,6 @@ func (app *application) signupAuthor(w http.ResponseWriter, r *http.Request) {
 	}
 
 	app.session.Put(r, "flash", "Signup was a great success!")
-
-	fmt.Fprintln(w, "Create new user")
 
 	http.Redirect(w, r, "/author/login", http.StatusSeeOther)
 }

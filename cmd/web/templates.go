@@ -21,6 +21,9 @@ type templateData struct {
 }
 
 func humanDate(t time.Time) string {
+	if t.IsZero() {
+		return ""
+	}
 	return t.Format("01.02.2006")
 }
 

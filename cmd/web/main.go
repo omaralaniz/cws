@@ -10,6 +10,7 @@ import (
 
 	"github.com/golangcollege/sessions"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/omaralaniz/computerandwebstuff/pkg/models"
 	"github.com/omaralaniz/computerandwebstuff/pkg/models/postgres"
 )
 
@@ -18,11 +19,21 @@ type contextKey string
 const contextKeyIsAuthenticated = contextKey("isAuthenticated")
 
 type application struct {
-	infoLog       *log.Logger
-	errorLog      *log.Logger
-	session       *sessions.Session
-	posts         *postgres.PostModel
-	authors       *postgres.AuthorModel
+	infoLog  *log.Logger
+	errorLog *log.Logger
+	session  *sessions.Session
+	posts    interface {
+		Insert(string, string, string, string, string) (int, error)
+		Update(int, string, string, string, string, string) (int, error)
+		Get(int) (*models.Post, error)
+		Latest() ([]*models.Post, error)
+		Category(string) ([]*models.Post, error)
+	}
+	authors interface {
+		Insert(string, string, string) error
+		Authenticate(string, string) (int, error)
+		Get(int) (*models.Author, error)
+	}
 	templateCache map[string]*template.Template
 }
 
@@ -49,7 +60,6 @@ func main() {
 	session := sessions.New([]byte(secret))
 	session.Lifetime = 12 * time.Hour
 	session.Secure = true
-	session.SameSite = http.SameSiteStrictMode
 
 	app := &application{
 		infoLog:       infoLog,
