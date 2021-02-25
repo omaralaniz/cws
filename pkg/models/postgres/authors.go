@@ -2,7 +2,6 @@ package postgres
 
 import (
 	"context"
-	"database/sql"
 	"errors"
 
 	"github.com/jackc/pgconn"
@@ -72,7 +71,7 @@ func (a *AuthorModel) Get(id int) (*models.Author, error) {
 	query := `SELECT id, name, email, created, active FROM authors WHERE id = $1`
 	err := a.DB.QueryRow(context.Background(), query, id).Scan(&author.ID, &author.Name, &author.Email, &author.Created, &author.Active)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
+		if errors.Is(err, pgx.ErrNoRows) {
 			return nil, models.ErrNoRecord
 		} else {
 			return nil, err
