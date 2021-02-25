@@ -84,7 +84,7 @@ func (ts *testServer) get(t *testing.T, urlPath string) (int, http.Header, []byt
 }
 
 func (ts *testServer) postForm(t *testing.T, urlPath string, form url.Values) (int, http.Header, []byte) {
-	rs, err := ts.Client().PostForm(ts.URL+urlPath, form)
+	res, err := ts.Client().PostForm(ts.URL+urlPath, form)
 
 	t.Log(ts.URL + urlPath)
 
@@ -92,13 +92,11 @@ func (ts *testServer) postForm(t *testing.T, urlPath string, form url.Values) (i
 		t.Fatal(err)
 	}
 
-	// Read the response body.
-	defer rs.Body.Close()
-	body, err := ioutil.ReadAll(rs.Body)
+	defer res.Body.Close()
+	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// Return the response status, headers and body.
-	return rs.StatusCode, rs.Header, body
+	return res.StatusCode, res.Header, body
 }
